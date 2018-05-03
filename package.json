@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":
+      "npx parcel build swagger.html --public-url assets --out-dir _includes/swagger --no-source-maps",
+    "postbuild":
+      "rsync --remove-source-files ./_includes/swagger/swagger-custom.* ./assets"
   },
   "author": "",
   "license": "ISC",

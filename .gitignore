@@ -1,3 +1,9 @@
+# Parcel
 .cache
 dist
 node_modules
+
+# jekyll
+_site
+.sass-cache
+.jekyll-metadata
