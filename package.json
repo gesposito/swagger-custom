@@ -1,0 +1,16 @@
+{
+  "name": "swagger-custom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@braintree/sanitize-url": "^2.1.0",
+    "react": "^15.6.2",
+    "swagger-ui": "^3.14.0"
+  }
+}
