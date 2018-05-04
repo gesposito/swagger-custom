@@ -1,6 +1,6 @@
 import React from "react";
 
-import { sanitizeUrl } from "@braintree/sanitize-url";
+import Hero from "./Hero";
 
 // Create the layout component
 class CustomLayout extends React.Component {
@@ -26,69 +26,44 @@ class CustomLayout extends React.Component {
       );
     }
 
-    const Row = getComponent("Row");
-    const Col = getComponent("Col");
+    const securityDefinitions = specSelectors.securityDefinitions();
+    const AuthorizeBtn = getComponent("authorizeBtn", true)
+
     const Operations = getComponent("operations", true);
-    const Markdown = getComponent("Markdown", true);
-
-    const info = specSelectors.info();
-    const title = info.get("title");
-    const tos = info.get("termsOfService");
-    const description = info.get("description");
-
-    const contact = info.get("contact");
-    const email = contact && contact.get("email");
-    const name = contact && contact.get("name");
-    const url = contact && contact.get("url");
 
     return (
-      <div className="swagger-ui">
-        <Row>
-          <Col mobile={12} desktop={3}>
-            <div className="info">
-              <hgroup className="main">
-                <h1>{title}</h1>
-                <hr />
-                <h2>Contatti</h2>
-                <div>
-                  {url && (
-                    <a href={sanitizeUrl(url)} target="_blank">
-                      {name} - Website
-                    </a>
-                  )}
+      <div className="u-posRelative u-background-grey-15">
+        <div
+          style={{ top: -120 }}
+          className="u-posRelative u-layout-r-withGutter u-sizeFull"
+        >
+          <div className="Grid Grid--alignCenter">
+            <div className="Grid-cell u-md-size12of12 u-lg-size12of12">
+              <div className="u-nbfc u-flexWrap u-flex u-color-grey-30 u-xs-padding-all-none u-borderShadow-m u-xs-borderShadow-none u-borderRadius-m u-background-white u-sizeFill">
+                <div className="u-layout-r-withGutter u-sizeFull u-padding-top-xxl u-padding-bottom-xxl">
+                  <div className="u-padding-top-xxl u-padding-bottom-xxl">
+                    <Hero
+                      specSelectors={specSelectors}
+                      getComponent={getComponent}
+                    />
+                  </div>
                 </div>
-                <div>
-                  {email && (
-                    <a href={sanitizeUrl(`mailto:${email}`)}>
-                      {url ? `Send email to ${name}` : `Contact ${name}`}
-                    </a>
-                  )}
-                </div>
-                <hr />
-                <h2>Condizioni</h2>
-                <div>
-                  {tos && (
-                    <a target="_blank" href={sanitizeUrl(tos)}>
-                      Terms of service
-                    </a>
-                  )}
-                </div>
-              </hgroup>
+              </div>
             </div>
-          </Col>
-          <Col mobile={12} desktop={9}>
-            <h2>Descrizione</h2>
-            <div className="description">
-              {description ? <Markdown source={description} /> : "-"}
-            </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
 
-        <Row>
-          <Col mobile={12} desktop={12}>
+        <div className="u-background-grey-15 u-layout-r-withGutter u-padding-bottom-xxl">
+          <div className="swagger-ui">
+            <div>
+              {securityDefinitions ? (
+                <AuthorizeBtn />
+              ) : null}
+            </div>
+
             <Operations />
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     );
   }
