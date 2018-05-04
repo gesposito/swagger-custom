@@ -9,8 +9,9 @@ import "swagger-ui/dist/swagger-ui.css";
 let swaggerUrl = window.swaggerUrl;
 if (process.env.NODE_ENV === "development") {
   // Assign a default while in "development"
+  // swaggerUrl = "https://raw.githubusercontent.com/teamdigitale/api-openapi-samples/master/external-apis/fatture-e-corrispettivi.yaml";
   swaggerUrl =
-    "https://raw.githubusercontent.com/teamdigitale/api-openapi-samples/master/external-apis/fatture-e-corrispettivi.yaml";
+    "https://raw.githubusercontent.com/teamdigitale/api-openapi-samples/master/openapi-v3/core-vocabularies-ref.yaml";
 }
 
 SwaggerUI({
