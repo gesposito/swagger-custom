@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { sanitizeUrl } from "@braintree/sanitize-url";
 
+import "./Hero.css";
+
 class Hero extends Component {
   render() {
     const { specSelectors, getComponent } = this.props;
@@ -23,36 +25,26 @@ class Hero extends Component {
     const tos = info.get("termsOfService");
 
     return (
-      <div className="info u-color-grey-40">
-        <h1 className="u-text-r-xl u-color-black u-padding-bottom-l">
+      <div className="info u-color-grey-50">
+        <h1 className="u-text-r-xl u-color-black u-padding-bottom-s">
           {title}
-          <span
-            className="Pill Pill--xxs u-background-50 u-color-white u-textWeight-600"
-            style={{
-              fontSize: "1rem",
-              verticalAlign: "super",
-              padding: "1em 0.4rem !important"
-            }}
-          >
+          <span className="Pill Pill--xxs u-background-50 u-color-white u-textWeight-600 hero-pill">
             {version}
           </span>
         </h1>
-        <p className="u-padding-bottom-xxl">
+        <p className="u-padding-bottom-xxl u-text-r-xxs">
           {servers &&
             servers.size && (
               <span>[ Base url: {servers.first().get("url")} ]</span>
             )}
         </p>
 
-        <p className="u-padding-bottom-s">
-          <strong
-            className="u-color-black "
-            style={{ textTransform: "uppercase" }}
-          >
+        <p className="u-padding-bottom-xs">
+          <strong className="u-color-black u-textUppercase u-text-r-xxs">
             Intro
           </strong>
         </p>
-        <div className="u-padding-bottom-xl">
+        <div className="u-padding-bottom-xl u-text-r-xxs u-lineHeight-l">
           {description ? <Markdown source={description} /> : "-"}
         </div>
 
