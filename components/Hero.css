@@ -1,3 +1,9 @@
+.hero ol,
+.hero ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
 .hero-pill {
     font-size: 1rem;
     vertical-align: super;

@@ -22,8 +22,10 @@ class CustomLayout extends React.Component {
       }
 
       return (
-        <div className="swagger-ui">
-          <div className="loading-container">{loadingMessage}</div>
+        <div className="u-posRelative u-background-grey-15">
+          <div className="swagger-ui">
+            <div className="loading-container">{loadingMessage}</div>
+          </div>
         </div>
       );
     }
