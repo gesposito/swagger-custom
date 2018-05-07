@@ -2,6 +2,8 @@ import React from "react";
 
 import Hero from "./Hero";
 
+import "./CustomLayout.css";
+
 // Create the layout component
 class CustomLayout extends React.Component {
   render() {
@@ -27,16 +29,13 @@ class CustomLayout extends React.Component {
     }
 
     const securityDefinitions = specSelectors.securityDefinitions();
-    const AuthorizeBtn = getComponent("authorizeBtn", true)
+    const AuthorizeBtn = getComponent("authorizeBtn", true);
 
     const Operations = getComponent("operations", true);
 
     return (
       <div className="u-posRelative u-background-grey-15">
-        <div
-          style={{ top: -120 }}
-          className="u-posRelative u-layout-r-withGutter u-sizeFull"
-        >
+        <div className="u-posRelative u-layout-r-withGutter u-sizeFull head-card">
           <div className="Grid Grid--alignCenter">
             <div className="Grid-cell u-md-size12of12 u-lg-size12of12">
               <div className="u-nbfc u-flexWrap u-flex u-color-grey-30 u-xs-padding-all-none u-borderShadow-m u-xs-borderShadow-none u-borderRadius-m u-background-white u-sizeFill">
@@ -54,12 +53,8 @@ class CustomLayout extends React.Component {
         </div>
 
         <div className="u-background-grey-15 u-layout-r-withGutter u-padding-bottom-xxl">
-          <div className="swagger-ui">
-            <div>
-              {securityDefinitions ? (
-                <AuthorizeBtn />
-              ) : null}
-            </div>
+          <div className="swagger-ui u-padding-bottom-xs">
+            <div>{securityDefinitions ? <AuthorizeBtn /> : null}</div>
 
             <Operations />
           </div>
